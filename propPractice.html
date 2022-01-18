@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <!-- react -->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- PropType 패키지(개발자가 사용할 프롭의 형식을 지정하고, 지정된 형식과 다른 데이터가 들어올 시 콘솔에 오류를 출력시켜줌 ) -->
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <!-- html로 변경해줌 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Btn({ text, grayColor, fontSize = 14, onClick }) {
+            console.log(text, "was rendered");
+            return (
+                <button
+                    onClick={onClick}
+                    style={{
+                        backgroundColor: "tomato",
+                        color: "white",
+                        padding: "10px 20px",
+                        border: 0,
+                        borderRadius: 10,
+                        color: grayColor ? "gray" : "white",
+                        fontSize,
+                    }}
+                >
+                    {text}
+                </button>
+            );
+        }
+        const MemorizedBtn = React.memo(Btn);
+        Btn.propTypes = {
+            text: PropTypes.string,
+            fontSize: PropTypes.number.isRequired,
+        };
+        function App() {
+            const [value, setValue] = React.useState("Save Changes");
+            const changeValue = () => setValue("Revert Changes");
+            return (
+                <div>
+                    <Btn text={value} grayColor={true} fontSize={20} onClick={changeValue} />
+                    <Btn text="Not Change" grayColor={false} />
+                </div>
+            );
+        }
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+    </script>
+</html>
