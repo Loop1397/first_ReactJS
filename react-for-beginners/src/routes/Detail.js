@@ -10,7 +10,7 @@ function Detail() {
         setMovie(json.data.movie);
         setLoading(current => !current);
     };
-    console.log(movie);
+    // console.log(movie);
     useEffect(() => {
         getMovie();
     }, []);
@@ -20,8 +20,10 @@ function Detail() {
                 <h1>Loading...</h1>
             ) : (
                 <div>
-                    <h1>Detail</h1>
                     <img src={movie.medium_cover_image}></img>
+                    <h1>title : {movie.title}</h1>
+                    <p>genre : {movie.genres}</p>
+                    <p>description : {movie.description_full}</p>
                 </div>
             )}
         </div>
