@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // import CoinTrackerApp from "./CoinTrackerApp";
-import MovieApp from "./MovieApp";
+// import MovieApp from "./MovieApp";
 import "./styles.css";
 // import ToDoApp from "./ToDoApp";
+import DoApp from "./DoApp";
 
 // npm 충돌 확인용
 // require("react-dom");
@@ -14,8 +15,9 @@ ReactDOM.render(
     <React.StrictMode>
         {/* <ToDoApp />
         <CoinTrackerApp />
-        <hr /> */}
-        <MovieApp />
+        <hr /> 
+        <MovieApp />*/}
+        <DoApp />
     </React.StrictMode>,
     document.getElementById("root")
 );
