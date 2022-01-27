@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import CoinTrackerApp from "./CoinTrackerApp";
 import MovieApp from "./MovieApp";
+import "./styles.css";
 // import ToDoApp from "./ToDoApp";
 
 // npm 충돌 확인용
