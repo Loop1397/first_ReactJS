@@ -4,7 +4,6 @@ import "moment/locale/ko";
 import styles from "./DoApp.module.css";
 
 function DoApp() {
-    let timer = null;
     const [time, setTime] = useState(moment());
     const [name, setName] = useState("");
     const [nameInput, setNameInput] = useState(false);
@@ -34,6 +33,10 @@ function DoApp() {
     const onSubmitTodo = e => {
         e.preventDefault();
         if (todo === "") {
+            return;
+        } else if (todos.indexOf(todo) != -1) {
+            alert("이미 입력된 일정입니다");
+            setTodo("");
             return;
         }
         setTodos(currentArray => [...currentArray, todo]);
